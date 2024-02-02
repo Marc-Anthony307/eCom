@@ -6,7 +6,7 @@
     echo 'Hello World'
     ?>
 */
-
+/*
 function add($a, $b){
     return $a+$b;
 
@@ -53,6 +53,9 @@ if($fn == 'add'){
     $result = divide($op1,$op2);
 
 }
-
+*/
+use app\core\App;
+require('app/core/init.php');
+new App();
 
 ?>
