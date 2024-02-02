@@ -11,4 +11,4 @@ docker run --name myXampp -p 22:22 -p 80:80 -d -v C:\Users\2283429\Documents\eCo
 
 ## Accessing the project
 
-Open a browser and point it to localhosO
+Open a browser and point it to localhost
