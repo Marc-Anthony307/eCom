@@ -16,6 +16,8 @@ Open a browser and point it to localhost.
 ## Bootstrap the project
 
 Create a file called '.htaccess'.
+Match a series of characters that arent empty and place it into a group = ^(.+)$
+
 
 Options -Multiviews
 Options -Indexes
@@ -27,7 +29,9 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-Match a series of characters that arent empty and place it into a group = ^(.+)$
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 RewriteRule ^()$ index.php?url=$1 [QSA,L]
 
+Copy this file exactly.
+
+## Core folder
