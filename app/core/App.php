@@ -15,7 +15,10 @@ class App{
                     'Person/greet' => 'Person,greet',
                     'bob' => 'Person,greet',
                     ''=> 'Person,greet',
-                    'Person/watch' => 'Person,watch']; 
+                    'Bob/greet' => 'Person,greet',
+                    'Person/watch' => 'Person,watch',
+                    'Person/register' => 'Person,register',
+                    'Person/complete_registration' => 'Person,complete_registration']; 
 
         //one by one compare the url to resolve the route
         foreach ($routes as $routeUrl => $controllerMethod){
