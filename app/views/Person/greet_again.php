@@ -6,12 +6,6 @@
 </head>
 <body>
 	<div id='container'>
-
-	  <!-- ['person_name' => $personName,
-                            'numbers' => $someArray,
-                            'profile' => $assocArray] -->
-
-							
 		Hello <?= $data['person_name'] ?>! <!-- using the data sent to the view method in the $data local variable -->
 		Here are some values:
 		<?php
@@ -22,9 +16,9 @@
 		?>
 		<dl>
 			<dt>First name</dt>
-			<dd><?=$data['profile']['first_name'] ?></dd>
+			<dd><?=$data['profile']->first_name ?></dd>
 			<dt>Last name</dt>
-			<dd><?=$data['profile']['last_name'] ?></dd>
+			<dd><?=$data['profile']->last_name ?></dd>
 		</dl>
 	</div>
 </body>
