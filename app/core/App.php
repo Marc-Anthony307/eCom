@@ -18,7 +18,8 @@ class App{
                     'Bob/greet' => 'Person,greet',
                     'Person/watch' => 'Person,watch',
                     'Person/register' => 'Person,register',
-                    'Person/complete_registration' => 'Person,complete_registration']; 
+                    'Person/complete_registration' => 'Person,complete_registration',
+                    'Person/' => 'Person,list']; 
 
         //one by one compare the url to resolve the route
         foreach ($routes as $routeUrl => $controllerMethod){
@@ -47,6 +48,6 @@ class App{
 
         //hardcode a call to a controller method
         $controller = new \app\controllers\Person();
-        $controller->greet_again();//call greet_again from the $controller object
+        //$controller->greet_again();//call greet_again from the $controller object
     }
 }

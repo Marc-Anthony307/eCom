@@ -20,16 +20,16 @@
             <label>Email address:<input type = "email" class = "form-control" name = "email" placeholder="Johndoe@email.com"/></label> 
         </div>
 
-        <!-- <div class = "form-group">
+        <div class = "form-group">
             <p>Do you want to be included on our mailing list?</p>
-            <label><input type = "radio" class = "form-control" name = "mailing_list" value="1"/>Yes</label> 
-            <label><input type = "radio" class = "form-control" name = "mailing_list" value="-1"/>No</label> 
-        </div> -->
+            <label><input type = "radio" name = "mailing_list" value="1"/>Yes</label> 
+            <label><input type = "radio" name = "mailing_list" value="-1"/>No</label> 
+        </div> 
 
         <div class = "form-group">
         <p>Do you want to be included on our following publications?</p>
-            <label><input type = "checkbox" class = "form-control" name = "publications[]" value="mailing_list"/>Include me on the mailing list</label> 
-            <label><input type = "checkbox" class = "form-control" name = "publications[]" value="weekly_flyer"/>Send me the weekly flyer</label> 
+            <label><input type = "checkbox" name = "publications[]" value="mailing_list"/>Include me on the mailing list</label> 
+            <label><input type = "checkbox" name = "publications[]" value="weekly_flyer"/>Send me the weekly flyer</label> 
 
         </div>
 

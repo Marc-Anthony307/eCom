@@ -1,8 +1,16 @@
 <?php
 namespace app\controllers;
 
+use stdClass;
+
 class Person extends \app\core\Controller{
 
+	function list(){
+		$people = \app\models\Person::getAll();
+		$this->view('Person/list',$people);
+	}
+
+/*
 	function greet(){
  		//data input
         //$personName = 'friend';
@@ -37,6 +45,7 @@ class Person extends \app\core\Controller{
 						'numbers'=>$someArray,
 						'profile'=>$profileObj]);
 	}
+*/
 
 	function register(){
 		//showing the register view
@@ -47,8 +56,9 @@ class Person extends \app\core\Controller{
 		print_r($_POST);
 
 		//call a view to sow the submitted data
-		//collect the data
-		$person = new \stdClass();
+		//collect the data]//declare a person object
+		$person = new \app\models\Person();
+		//populate the properties
 		$person->first_name = $_POST['first_name'];
 		$person->last_name = $_POST['last_name'];
 		$person->email = $_POST['email'];
@@ -57,7 +67,10 @@ class Person extends \app\core\Controller{
 		//$person->mailing_list = $_POST['mailing_list'] ?? 'unselected'; //null coalescing to avoid warning when no option of a radio button is selected
 		//hypothetically insert into a database
 		//show the feedback view
+		$person->insert(); // add person to data file
+
 		$this->view('Person/complete_registration',$person);
+
 	}
 	//function view($name, $data){
         //load the view files to present them to the web user
