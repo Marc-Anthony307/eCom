@@ -6,18 +6,19 @@
 </head>
 
 <body>
+  
 	<div id='container'>
-        <form method = 'post' action='/Person/complete_registration'>
+    <form method='post' action='/Person/update?id=<?= $data->id ?>'>
             <div class = "form-group">
-            <label>First name:<input type = "text" class = "form-control" name = "first_name" placeholder="John" value="<?= $data->first_name ?>"/></label>   <!-- id is for the browser and name is for the server -->
+            <label>First name:<input type = "text" class = "form-control" name = "first_name" placeholder="John" value="<?= $data->first_name?>"/></label>   <!-- id is for the browser and name is for the server -->
         </div>
 
         <div class = "form-group">
-            <label>Last name:<input type = "text" class = "form-control" name = "last_name" placeholder="Doe" value="<?= $data->last_name ?>" /></label>
+            <label>Last name:<input type = "text" class = "form-control" name = "last_name" placeholder="Doe" value="<?= $data->last_name?>"/></label>
         </div>
 
         <div class = "form-group">
-            <label>Email address:<input type = "text" class = "form-control" name = "email" placeholder="Johndoe@email.com" value="<?= $data->email ?>"/></label> 
+            <label>Email address:<input type = "text" class = "form-control" name = "email" placeholder="Johndoe@email.com" value="<?= $data->email?>"/></label> 
         </div>
 
         <div class = "form-group">
@@ -34,7 +35,7 @@
         </div>
 
         <div class = "form-group">
-            <input type="submit" name = "action" value ="Register" />
+            <input type="submit" name = "action" value ="Update" />
         </div>  
         
     </form>

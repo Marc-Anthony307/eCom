@@ -2,6 +2,13 @@
 namespace app\core;
 
 class App{
+
+    private $routes = [];
+
+    public function addRoute($url,$handler){
+        $url = preg_replace('/{([^\/]+)}/', '(?<$1[\/]+>)', $url);
+        $this->routes[$url] = $handler;
+    }
     function __construct(){
     	//call the appropriate controller class and method to handle the HTTP Request
 
@@ -19,7 +26,10 @@ class App{
                     'Person/watch' => 'Person,watch',
                     'Person/register' => 'Person,register',
                     'Person/complete_registration' => 'Person,complete_registration',
-                    'Person/' => 'Person,list']; 
+                    'Person/' => 'Person,list',
+                    'Person/delete' => 'Person,delete',
+                    'Person/edit' => 'Person,edit',
+                    'Person/update' => 'Person,update']; 
 
         //one by one compare the url to resolve the route
         foreach ($routes as $routeUrl => $controllerMethod){
@@ -27,7 +37,7 @@ class App{
                 [$controller, $method] = explode(',', $controllerMethod);
                 $controller = '\\app\\controllers\\'.$controller;
                 $controller = new $controller();
-                $controller->$method();
+                $controller->$method(); 
                 //make sure that we dont run a second route
                 break;
             }
