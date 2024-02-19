@@ -57,7 +57,7 @@ class App{
 
 
         //hardcode a call to a controller method
-        $controller = new \app\controllers\Person();
+        //$controller = new \app\controllers\Person();
         //$controller->greet_again();//call greet_again from the $controller object
     }
 }

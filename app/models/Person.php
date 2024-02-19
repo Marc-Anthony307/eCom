@@ -93,6 +93,7 @@ class Person
         //process the JSON string into an object
         $object = json_decode($records[$id]);
         $person = new \app\models\Person($object);
+        $person->id = $id;
         //return the record
         return $person;
     }

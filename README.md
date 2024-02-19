@@ -49,7 +49,7 @@ Start Docker Desktop first.
 
 Then run 
 ```
-docker run --name myXampp -p 22:22 -p 80:80 -d -v C:/Users/paquettm/eComH24S1:/opt/lampp/htdocs tomsik68/xampp
+docker run --name myXampp -p 22:22 -p 80:80 -d -v C:/Users/marca/Desktop/eCom:/opt/lampp/htdocs tomsik68/xampp
 ```
 
 ## Accessing the project
