@@ -6,7 +6,7 @@ class App{
     private $routes = [];
 
     public function addRoute($url,$handler){
-        $url = preg_replace('/{([^\/]+)}/', '(?<$1[\/]+>)', $url);
+        $url = preg_replace('/{([^\/]+)}/', '(?<$1>[^\/]+)', $url);
         $this->routes[$url] = $handler;
     }
     function __construct(){
