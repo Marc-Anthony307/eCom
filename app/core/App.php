@@ -28,8 +28,13 @@ class App{
                     'Person/complete_registration' => 'Person,complete_registration',
                     'Person/' => 'Person,list',
                     'Person/delete' => 'Person,delete',
-                    'Person/edit' => 'Person,edit',
-                    'Person/update' => 'Person,update']; 
+                    'Person/edit/{id}' => 'Person,edit',
+                    'Person/update' => 'Person,update',
+                    'User/register' => 'User,register',
+                    'User/login' => 'User,login',
+                    'User/logout' => 'User,logout',
+                    'User/update' => 'User,update',
+                    'User/securePlace' => 'User, securePlace']; 
 
         //one by one compare the url to resolve the route
         foreach ($routes as $routeUrl => $controllerMethod){

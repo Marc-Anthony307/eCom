@@ -1,6 +1,7 @@
 <?php
 namespace app\core;
 
+use PDO;
 class Model{
     protected static $_conn = null;
     //self is the keyword to access the class definition and
