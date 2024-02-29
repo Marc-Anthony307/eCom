@@ -34,7 +34,8 @@ class App{
                     'User/login' => 'User,login',
                     'User/logout' => 'User,logout',
                     'User/update' => 'User,update',
-                    'User/securePlace' => 'User, securePlace']; 
+                    'User/securePlace' => 'Profile,index',
+                    'Profile/index' => 'Profile,index']; 
 
         //one by one compare the url to resolve the route
         foreach ($routes as $routeUrl => $controllerMethod){

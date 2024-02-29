@@ -1,13 +1,12 @@
 <?php
 namespace app\controllers;
 
-class User extends \app\core\Controller
-{
-
-    function login()
-    {
-        if (($_SERVER['REQUEST_METHOD'] === 'POST')) { //"===" checking if they are equal and of the same data type
-            //log the user in... if the password is right
+class User extends \app\core\Controller{
+	
+	function login(){
+		//show the login form and log the user in
+		if($_SERVER['REQUEST_METHOD'] === 'POST'){
+			//log the user in... if the password is right
 			//get the user from the database
 			$username = $_POST['username'];
 			$user = new \app\models\User();
@@ -27,26 +26,25 @@ class User extends \app\core\Controller
 		}
 	}
 
-    function logout()
-    {
-        session_destroy(); //destroys everything
-        //or $_SESSION['user_id'] = null 
-        //or session_unset();
-        header('location:/User/login');
-    }
+	function logout(){
+		//session_destroy();
+		//$_SESSION['user_id'] = null;
 
-    function securePlace()
-    {
-        if (!isset($_SESSION['user_id'])) {
-            header('location:/User/login');
-            return;
-        }
-        echo "You are safe. You are in a secure location.";
-    }
+		session_destroy();
 
-function register()
-{
-   	//display the form and process the registration
+		header('location:/User/login');
+	}
+
+	function securePlace(){
+		if(!isset($_SESSION['user_id'])){
+			header('location:/User/login');
+			return;
+		}
+		echo 'You are safe. You are in a secure location.';
+	}
+
+	function register(){
+		//display the form and process the registration
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 			//getting the user input and place it in an object
 			//create the new User
@@ -63,41 +61,41 @@ function register()
 		}
 	}
 
-//update our own user record (only if I am logged in)
-function update(){
-    if(!isset($_SESSION['user_id'])){
-        header('location:/User/login');
-        return;
-    }
+	//update our own user record (only if I am logged in)
+	function update(){
+		if(!isset($_SESSION['user_id'])){
+			header('location:/User/login');
+			return;
+		}
 
-    $user = new \app\models\User();
-    $user = $user->getById($_SESSION['user_id']);
+		$user = new \app\models\User();
+		$user = $user->getById($_SESSION['user_id']);
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        //process the update
-        $user->username = $_POST['username'];
-        //change the password only if one is sent
-        $password = $_POST['password'];
-        if(!empty($password)){//should be false if ''
-            $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
-        }//otherwise remains as it was
-        $user->update();
-        header('location:/User/update');
-    }else{
-        $this->view('User/update', $user);
-    }
-}
+		if($_SERVER['REQUEST_METHOD'] === 'POST'){
+			//process the update
+			$user->username = $_POST['username'];
+			//change the password only if one is sent
+			$password = $_POST['password'];
+			if(!empty($password)){//should be false if ''
+				$user->password_hash = password_hash($password, PASSWORD_DEFAULT);
+			}//otherwise remains as it was
+			$user->update();
+			header('location:/User/update');
+		}else{
+			$this->view('User/update', $user);
+		}
+	}
 
-function delete(){
-    if(!isset($_SESSION['user_id'])){
-        header('location:/User/login');
-        return;
-    }
+	function delete(){
+		if(!isset($_SESSION['user_id'])){
+			header('location:/User/login');
+			return;
+		}
 
-    $user = new \app\models\User();
-    $user = $user->getById($_SESSION['user_id']);
-    $user->delete();
-    header('location:/User/logout');
-}
+		$user = new \app\models\User();
+		$user = $user->getById($_SESSION['user_id']);
+		$user->delete();
+		header('location:/User/logout');
+	}
 
 }
