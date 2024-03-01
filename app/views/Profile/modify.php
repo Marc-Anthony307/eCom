@@ -6,21 +6,20 @@
 </head>
 
 <body>
-	<div class = 'container'>
+	<div class='container'>
         <form method = 'post' action=''>
             <div class = "form-group">
-            <label>Username:<input type = "text" class = "form-control" name = "username" placeholder="John" value='<?= $data->username ?>'/></label>   <!-- id is for the browser and name is for the server -->
+            <label>First name:<input type = "text" class = "form-control" name = "first_name" placeholder="John" value='<?=$data->first_name ?>'/></label>   <!-- id is for the browser and name is for the server -->
         </div>
 
         <div class = "form-group">
-            <label>Password:<input type = "password" class = "form-control" name = "password" placeholder="*******"/></label>
+            <label>Last name:<input type = "text" class = "form-control" name = "last_name" placeholder="Doe" value='<?=$data->last_name ?>'/></label>
         </div>
 
         <div class = "form-group">
-            <input type="submit" name = "action" value ="Update" />
+            <input type="submit" name = "action" value ="Record my profile" />
         </div>  
-        <a href='/User/register'>Cancel</a>
-        
+        <a href='/Profile/index'>Cancel</a> 
         
     </form>
 </div>

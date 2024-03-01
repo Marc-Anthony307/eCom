@@ -7,7 +7,7 @@
 
 <body>
   
-	<div id='container'>
+	<div class = 'container'>
     <form method='post' action='/Person/update?id=<?= $data->id ?>'>
             <div class = "form-group">
             <label>First name:<input type = "text" class = "form-control" name = "first_name" placeholder="John" value="<?= $data->first_name?>"/></label>   <!-- id is for the browser and name is for the server -->

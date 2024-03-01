@@ -2,9 +2,10 @@
 namespace app\models;
 
 use PDO;
+
 class Profile extends \app\core\Model
 {
-    public $profile_id;
+    public $profile_id; //primary key
     public $user_id;
     public $first_name;
     public $last_name;
@@ -17,7 +18,7 @@ class Profile extends \app\core\Model
     {
         $SQL = 'INSERT INTO profile(user_id,first_name,last_name) VALUES (:user_id,:first_name,:last_name)';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execture(
+        $STMT->execute(
             [
                 'user_id' => $this->user_id,
                 'first_name' => $this->first_name,
@@ -41,20 +42,22 @@ class Profile extends \app\core\Model
         $SQL = 'SELECT * FROM profile';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Profile');  //set the type of data returned by fetches
-        return $STMT->fetchAll();  //return all records
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Profile');//set the type of data returned by fetches
+        return $STMT->fetchAll();//return all records
     }
+
     public function getByName($name)
-    {
+    {//search
         $SQL = 'SELECT * FROM profile WHERE CONCAT(first_name,\' \',last_name) = :name';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
-            ['name'=>$name]
+            ['name' => $name]
         );
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Profile');  //set the type of data returned by fetches
-        return $STMT->fetchAll();  //return all records
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Profile');//set the type of data returned by fetches
+        return $STMT->fetchAll();//return all records
     }
-    //you can't change user_id, that's a business logic choice that gets implemented in the model
+    //update
+    //you can't change the user_id that's a business logic choice that gets implemented in the model
     public function update()
     {
         $SQL = 'UPDATE profile SET first_name=:first_name,last_name=:last_name WHERE profile_id = :profile_id';
@@ -70,14 +73,10 @@ class Profile extends \app\core\Model
 
     public function delete()
     {
-        $SQL = 'DELETE FROM profile WHERE profile_id=:profile_id';
+        $SQL = 'DELETE FROM profile WHERE profile_id = :profile_id';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
-            [
-                'profile_id' => $this->profile_id,
-                'first_name' => $this->first_name,
-                'last_name' => $this->last_name
-            ]
+            ['profile_id' => $this->profile_id]
         );
     }
 }

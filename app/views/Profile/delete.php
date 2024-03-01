@@ -15,6 +15,7 @@
 
     <div class='container'>
         <h1>User Profile</h1>
+        <p>Do you want to proceed with deletion of your profile?</p>
         <dl>
             <dt>First Name:</dt>
             <dd>
@@ -25,10 +26,10 @@
                 <?= $data->last_name ?>
             </dd>
         </dl>
-        <a href='/Profile/modify'>Modify my profile</a>
-        |
-        <a href='/Profile/delete'>Delete my profile</a>
-
+        <form method="post" action=''>
+            <input type="submit" name="action" value="Delete">
+            <a href='/Profile/index'>Cancel</a>
+        </form>
     </div>
 </body>
 

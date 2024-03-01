@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div id='container'>
+    <div class = 'container'>
         <form method='post' action=''>
             <div class="form-group">
                 <label>Username:<input type="text" class="form-control" name="username" placeholder="Jon" /></label>
