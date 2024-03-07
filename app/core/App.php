@@ -70,15 +70,36 @@ class App
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
 
+        if(!$controllerMethod){
+            return;
+        }
+
         [$controller, $method] = explode(',', $controllerMethod);
 
         $controller = '\app\controllers\\' . $controller;
 
         $controllerInstance = new $controller();
 
+        // creat an object that  can get information about the controller
+        $reflection = new \ReflectionClass($controllerInstance);
+        // get the attributes from the controller
+        $classAttributes = $reflection->getAttributes();
+        $methodAttributes = $reflection->getMethod($method)->getAttributes();
+
+        $attributes = array_merge($classAttributes, $methodAttributes);
+
+        foreach($attributes as $attribute)    {
+            // instantiate the filter
+            $filter = $attribute->newInstance();
+            // run the filter and test if redirected
+            if($filter->redirected()){
+                return;
+            }
+        }
+
         call_user_func_array([$controllerInstance, $method], $namedParams);
 
-        //run the route
+        // run the route
         [$controller, $method] = explode(',', $controllerMethod);
         $controller = '\\app\\controllers\\' . $controller;
         $controller = new $controller();

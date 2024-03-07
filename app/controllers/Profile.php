@@ -1,16 +1,11 @@
 <?php
 namespace app\controllers;
-
+#[\app\filters\Login]  //making sure the user is logging in more efficiently than copy pasting over and over
 class Profile extends \app\core\Controller
 {
-
+    #[\app\filters\HasProfile]
     public function index()
     {
-        //make sure tht the user is logged in
-        if (!isset($_SESSION['user_id'])) {
-            header('location:/User/login');
-            return;
-        }
 
         $profile = new \app\models\Profile();
         $profile = $profile->getForUser($_SESSION['user_id']);
@@ -28,11 +23,6 @@ class Profile extends \app\core\Controller
 
     public function create()
     {
-        //check that user is logged in...
-        if (!isset($_SESSION['user_id'])) {
-            header('location:/User/login');
-            return;
-        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {   //data is submitted through POST, the '===' checks the data type
             //make a new profile object
@@ -52,11 +42,6 @@ class Profile extends \app\core\Controller
 
     public function modify()
     {
-        //check that user is logged in...
-        if (!isset($_SESSION['user_id'])) {
-            header('location:/User/login');
-            return;
-        }
 
         $profile = new \app\models\Profile();
         $profile = $profile->getForUser($_SESSION['user_id']);
@@ -77,11 +62,11 @@ class Profile extends \app\core\Controller
     //delete
     public function delete()
     {
-        //check that user is logged in...
-        if (!isset($_SESSION['user_id'])) {
-            header('location:/User/login');
-            return;
-        }
+        // //check that user is logged in...
+        // if (!isset($_SESSION['user_id'])) {
+        //     header('location:/User/login');
+        //     return;
+        // }
 
         //present the user with a form to confirm the deletion that is requested and delete if the form is submitted
         $profile = new \app\models\Profile();
