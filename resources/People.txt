@@ -3,3 +3,5 @@
 {"first_name":"Syed","last_name":"Whateverhislastnamewas","email":"whyman@yahoo.ca","weekly_flyer":true,"mailing_list":true}
 {"first_name":"Hank","last_name":"Schrader","email":"theyremineralsmarie@gmail.com","weekly_flyer":false,"mailing_list":true}
 {"first_name":"Marc-Anthony","last_name":"Iacobellis","email":"marcanthony307@yahoo.ca","weekly_flyer":false,"mailing_list":true}
+{"first_name":"Tes","last_name":"Test","email":"marcanthony307@yahoo.ca","weekly_flyer":true,"mailing_list":false}
+{"first_name":"Tes","last_name":"Test","email":"marcanthony307@yahoo.ca","weekly_flyer":true,"mailing_list":false}

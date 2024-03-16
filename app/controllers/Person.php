@@ -9,7 +9,7 @@ class Person extends \app\core\Controller
 	function list()
 	{
 		$people = \app\models\Person::getAll();
-		$this->view('Person/list', $people);
+		$this->view('Person/list',$people);
 	}
 
 	/*
