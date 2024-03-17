@@ -103,7 +103,7 @@ class Person extends \app\core\Controller
 		//get that record
 		$person = \app\models\Person::get($id);
 		//get the updated information from the user...
-		$this->view('Person/edit',$person);
+		$this->view('Person/edit', ['person' => $person]);
 	}
 
 	function update(){

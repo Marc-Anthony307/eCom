@@ -1,7 +1,9 @@
 {"first_name":"Test","last_name":"TestT","email":"Test@gmail.com","weekly_flyer":false,"mailing_list":true}
 {"first_name":"Marc","last_name":"Iaco213","email":"Iaco@gmai.cpom","weekly_flyer":true,"mailing_list":true}
-{"first_name":"Syed","last_name":"Whateverhislastnamewas","email":"whyman@yahoo.ca","weekly_flyer":true,"mailing_list":true}
 {"first_name":"Hank","last_name":"Schrader","email":"theyremineralsmarie@gmail.com","weekly_flyer":false,"mailing_list":true}
 {"first_name":"Marc-Anthony","last_name":"Iacobellis","email":"marcanthony307@yahoo.ca","weekly_flyer":false,"mailing_list":true}
 {"first_name":"Tes","last_name":"Test","email":"marcanthony307@yahoo.ca","weekly_flyer":true,"mailing_list":false}
 {"first_name":"Tes","last_name":"Test","email":"marcanthony307@yahoo.ca","weekly_flyer":true,"mailing_list":false}
+{"first_name":"test","last_name":"test","email":"marcanthony307@yahoo.ca","weekly_flyer":false,"mailing_list":true}
+{"first_name":"Marc-Anthony","last_name":"Iacobellis","email":"marcanthony307@yahoo.ca","weekly_flyer":false,"mailing_list":true}
+{"first_name":"Marc-Anthony","last_name":"Iacobellis","email":"marcanthony307@yahoo.ca","weekly_flyer":false,"mailing_list":true}
